@@ -15,8 +15,9 @@ class OCSafariDelegate: NSObject, SFSafariViewControllerDelegate, OCSafariViewCo
     
     // MARK: - SFSafariViewControllerDelegate
     
+    @available(iOS 9.0, *)
     @objc func safariViewControllerDidFinish(controller: SFSafariViewController) {
-        delegate.navigationController?.popToRootViewControllerAnimated(true)
+        delegate.navigationController?.popViewControllerAnimated(true)
     }
     func handleSwipeInSafari(recognizer: UIScreenEdgePanGestureRecognizer) {
         

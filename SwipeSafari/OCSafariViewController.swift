@@ -14,6 +14,7 @@ protocol OCSafariViewControllerDelegate {
 	func handleSwipeInSafari(gestureRecognizer: UIScreenEdgePanGestureRecognizer)
 }
 
+@available(iOS 9.0, *)
 class OCSafariViewController: SFSafariViewController, UINavigationControllerDelegate, UIViewControllerTransitioningDelegate {
 	
 	
@@ -43,6 +44,11 @@ class OCSafariViewController: SFSafariViewController, UINavigationControllerDele
 		self.navigationController?.setNavigationBarHidden(true, animated: true)
 	}
 	
+    // Stop SFSafariViewController from dismissing navigationController
+    override func dismissViewControllerAnimated(flag: Bool, completion: (() -> Void)?) {
+        completion
+    }
+    
 	override func viewDidAppear(animated: Bool) {
 		
 		super.viewDidAppear(animated)
